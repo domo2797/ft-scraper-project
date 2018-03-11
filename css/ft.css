@@ -1,0 +1,162 @@
+body {
+
+}
+
+.alert-full {
+	width:100%;
+	border-radius:0;
+}
+
+.autocomplete-suggestion b {
+	font-weight:700 !important;
+    color: #2ccc74 !important;
+    /*color: #1f8dd6;*/
+}
+
+.btn .fa-check {
+	opacity: 0;
+}
+.btn.active .fa-check {
+	opacity: 1;
+}
+
+.container-ft {
+	background-color: #fff1e5;
+	/*background-color: #fcd0b1;*/
+	color:#333333;
+}
+
+.footer {
+    background-color: #3c3d41;
+    color: white;
+}
+
+.footer .footer-copyright {
+    background-color: #333333;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    text-align: center;
+}
+
+.footer .row {
+    margin-bottom: 60px;
+}
+
+.footer .navbar-brand {
+    margin-top: 45px;
+    height: 65px;
+}
+
+.footer .footer-copyright p {
+    margin: 10px;
+    color: #ccc;
+}
+
+.footer ul {
+    list-style-type: none;
+    padding-left: 0;
+    line-height: 1.7;
+}
+
+.footer h5 {
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.footer h2 a{
+    font-size: 50px;
+    text-align: center;
+    color: #fff;
+}
+
+.footer a {
+    color: #d2d1d1;
+    text-decoration: none;
+}
+
+.footer a:hover,
+.footer a:focus {
+    text-decoration: none;
+    color: white;
+}
+
+.footer .btn {
+    color: white;
+    background-color: #d84b6b;
+    border-radius: 20px;
+    border: none;
+    width: 150px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+    line-height: 25px;
+}
+
+@media screen and (max-width: 767px) {
+    .footer {
+        text-align: center;
+    }
+}
+
+.btn {
+	border-radius:0;
+}
+
+.input-group-append .btn {
+	border-radius:0;
+}
+
+.card {
+	border:0;
+	margin-bottom:2rem;
+	background-color: inherit;
+}
+
+.card h3.card-title > a {
+	text-decoration: none;
+	color:#333333;
+}
+
+.card-body {
+	padding:0;
+}
+
+.input-group-text {
+	border-radius:0 !important;
+}
+
+.form-control {
+	border-radius:0 !important;
+}
+
+.bg-ft-jumbotron {
+	background-color:#3c3d41;
+	color:white;
+}
+
+.bg-ft-dark {
+	background-color:#fcd0b1;
+	color:inherit;
+}
+
+.navbar input {
+	display: inline-block;
+}
+
+.navbar h2 a{
+    font-size:35px;
+	font-weight:300;
+	color:inherit;
+    text-align:center;
+	text-decoration:none;
+}
+
+@keyframes marquee {
+  0% { left: 0; }
+  41% { left: -125%; }
+  42% { left: 100%; }
+  83% { left: 0; }
+  100% { left: 0; }
+}
