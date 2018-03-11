@@ -1,21 +1,32 @@
+<!--  Written on 11th March 2018.
+      This script, or the contents of it, can be used however desired.
+      Available to view at https://github.com/domo2797/ft-scraper-project -->
 <!DOCTYPE html>
 <html>
   <head>
     <title>Search the Financial Times</title>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1,
+    shrink-to-fit=no">
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="css/ft.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-  	<nav class="navbar navbar-expand-lg navbar-dark bg-theme-main p-4" style="background-color:#fff1e5;">
+  	<nav class="navbar navbar-expand-lg navbar-dark bg-theme-main p-4"
+      style="background-color:#fff1e5;">
   	  <div class="container">
-  		  <h2 class="logo mr-3" style="white-space:nowrap;"><a href="/">FT Search</a></h2>
+  		  <h2 class="logo mr-3" style="white-space:nowrap;">
+          <a href="/">FT Search</a>
+        </h2>
   		  <div class="input-group">
           <form action="" method="GET" style="display:inherit;width:inherit;">
-    		    <input type="search" class="form-control form-control-lg" name="q" style="padding: .375rem .75rem;" placeholder="Search for articles...">
+    		    <input type="search" class="form-control form-control-lg" name="q"
+              style="padding: .375rem .75rem;" <?php if($_GET["q"] != ""){echo
+              'value="'.$_GET[q].'"';} ?> placeholder="Search for articles...">
     		    <span class="input-group-btn">
-    			    <button type="submit" class="btn btn-lg bg-ft-dark" style="border:0;" type="button"><i class="fas fa-search"></i></button>
+    			    <button type="submit" class="btn btn-lg bg-ft-dark"
+                style="border:0;" type="button">Search
+              </button>
     		    </span>
           </form>
   		  </div>
@@ -47,17 +58,25 @@
 
       $json = curl_exec($ci);
       $json_decode = json_decode($json, true);
-      $result_count = count($json_decode["results"][0]["results"]);
-      $headline_result = $json_decode["results"][0]["results"][rand(0,$result_count-1)];
+      $json_count = count($json_decode["results"][0]["results"]);
+      $headline = $json_decode["results"][0]["results"][rand(0,$json_count-1)];
     ?>
   	<div class="container-fluid container-ft pb-5">
   	  <div class="container">
         <div class="jumbotron p-3 p-5 text-white rounded-0 bg-ft-jumbotron">
           <div class="row">
             <div class="col-md-10">
-              <h1 class="display-4 font-italic"><?php echo $headline_result["title"]["title"]; ?></h1>
-              <p class="lead my-3"><?php echo $headline_result["summary"]["excerpt"]; ?></p>
-              <p class="lead mb-0"><a href="<?php echo $headline_result["location"]["uri"]; ?>" class="text-white font-weight-bold">Read this on FT.com >></a></p>
+              <h1 class="display-4 font-italic">
+                <?php echo $headline["title"]["title"]; ?>
+              </h1>
+              <p class="lead my-3">
+                <?php echo $headline["summary"]["excerpt"]; ?>
+              </p>
+              <p class="lead mb-0">
+                <a href="<?php echo $headline["location"]["uri"]; ?>"
+                  class="text-white font-weight-bold">Read this on FT.com
+                </a>
+              </p>
             </div>
           </div>
         </div>
@@ -70,12 +89,31 @@
                 echo "
                 <div class=\"card\">
                   <div class=\"card-body\">
-                    <h3 class=\"card-title\"><a href=\"".$article["location"]["uri"]."\">".$article["title"]["title"]."</a></h3>
-                    <p class=\"card-text m-0\" style=\"filter:blur(3px);\">This is just a small excerpt from the main article, of which can be found on the FT.com website. A direct link is provided above.</p>
-                    <p class=\"card-text m-0\">".$article["summary"]["excerpt"]."</p>
-                    <p class=\"card-text m-0\" style=\"filter:blur(3px);\">Visit FT.com to read the rest of this article and other great articles. A direct link is provided above.</p>
+                    <h3 class=\"card-title\">
+                      <a href=\"".$article["location"]["uri"]."\">"
+                        .$article["title"]["title"]."
+                      </a>
+                    </h3>
+
+                    <p class=\"card-text m-0\" style=\"filter:blur(3px);\">
+                      This is just a small excerpt from the main article, of
+                      which can be found on the FT.com website. A direct link
+                      is provided above.
+                    </p>
+
+                    <p class=\"card-text m-0\">"
+                      .$article["summary"]["excerpt"].
+                    "</p>
+
+                    <p class=\"card-text m-0\" style=\"filter:blur(3px);\">
+                      Visit FT.com to read the rest of this article and other
+                      great articles. A direct link is provided above.
+                    </p>
+
                     <footer class=\"blockquote-footer\">
-                      <small class=\"text-muted\">".$article["editorial"]["byline"]."</small>
+                      <small class=\"text-muted\">"
+                      .$article["editorial"]["byline"].
+                      "</small>
                     </footer>
                   </div>
                 </div>
@@ -92,16 +130,10 @@
   	</div>
   	<footer class="footer">
   	  <div class="footer-copyright">
-  		<p>© Dominic Edwards 2018. This is test software that is under development.</p>
+  		  <p>©Dominic Edwards 2018. This script is licensed under MIT.</p>
   	  </div>
   	</footer>
   </body>
   <script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
   <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
-  <script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
-  <script>
-	$(document).ready(function(){
-
-	});
-  </script>
 </html>
